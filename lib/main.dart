@@ -110,8 +110,8 @@ class AuthWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<AuthProvider>(
       builder: (context, auth, _) {
-        // Show loading screen while checking auth status
-        if (auth.status == AuthStatus.initial || auth.status == AuthStatus.loading) {
+        // Show loading screen only during initial auth check (app startup)
+        if (auth.status == AuthStatus.initial) {
           return const SplashScreen();
         }
         
